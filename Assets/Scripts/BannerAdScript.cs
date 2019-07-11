@@ -8,12 +8,12 @@ public class BannerAdScript : MonoBehaviour
     public bool testMode = false;
 
 #if UNITY_IOS
-    private string gameId = "";
+    private string gameId = "3215877";
 #elif UNITY_ANDROID
-    private string gameId = "";
+    private string gameId = "3215876";
 #endif
 
-    void Start()
+    void Awake()
     {
         Advertisement.Initialize(gameId, testMode);
         StartCoroutine(ShowBannerWhenReady());
@@ -24,8 +24,9 @@ public class BannerAdScript : MonoBehaviour
         while (!Advertisement.IsReady(placementId))
         {
             yield return new WaitForSeconds(0.5f);
+            Debug.Log("No se muestra");
         }
-        Advertisement.Banner.Show(placementId);
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        Advertisement.Banner.Show(placementId);
     }
 }
