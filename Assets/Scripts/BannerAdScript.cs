@@ -8,9 +8,9 @@ public class BannerAdScript : MonoBehaviour
     public bool testMode = false;
 
 #if UNITY_IOS
-    private string gameId = "3215877";
+    private string gameId = "";
 #elif UNITY_ANDROID
-    private string gameId = "3215876";
+    private string gameId = "";
 #endif
 
     void Start()
